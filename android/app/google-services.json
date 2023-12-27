@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "19517064028",
+    "project_id": "notespad-869d4",
+    "storage_bucket": "notespad-869d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19517064028:android:250ab7b895fbf57f72f799",
+        "android_client_info": {
+          "package_name": "com.example.notingpad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1mzRJVph9J0s3ZwHJdo8oLx0tXQj-G1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
