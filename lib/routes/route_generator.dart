@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notingpad/firestore_example/firestore_example.dart';
 import 'package:notingpad/form_screen.dart';
 import 'package:notingpad/splash/splash_screen.dart';
 
@@ -12,6 +13,8 @@ class route_generator{
         return MaterialPageRoute(builder: (_)=>const SplashScreen());
       case "/form":
         return MaterialPageRoute(builder: (_)=>const FormScreen());
+      case "/firestore":
+        return MaterialPageRoute(builder: (_)=>const FirestoreExample());
       default:
         return _pnf();
     }

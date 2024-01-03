@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notingpad/firestore_example/firestore_example.dart';
 import 'package:notingpad/form_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigate() async{
     await Future.delayed(const Duration(seconds: 3),() {
-      Navigator.pushReplacementNamed(context, FormScreen.routeName);
+      Navigator.pushReplacementNamed(context, FirestoreExample.routeName);
     },);
   }
 
