@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:notingpad/firestore_example/firestore_example.dart';
-import 'package:notingpad/form_screen.dart';
+// import 'package:notingpad/firestore_example/firestore_example.dart';
+import 'package:notingpad/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-  static const String routeName="/splash";
+  static const String routeName = "/splash";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-  void navigate() async{
-    await Future.delayed(const Duration(seconds: 3),() {
-      Navigator.pushReplacementNamed(context, FirestoreExample.routeName);
-    },);
+  void navigate() async {
+    await Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+      },
+    );
   }
 
   @override
@@ -35,7 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("SplashScreen"),
+      body: Center(
+
+
+         child: Text(". . . Loading", style: TextStyle(fontSize: 20, letterSpacing: 1.5)),
+
+
+      ),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:notingpad/form_screen.dart';
 import 'package:notingpad/providers/user_view_model.dart';
 import 'package:notingpad/routes/route_generator.dart';
 import 'package:notingpad/splash/splash_screen.dart';
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       ],
         child: OverlayKit(
           child: MaterialApp(
-            title: 'Flutter Demo',
+            title: 'NotingPad',
             debugShowCheckedModeBanner: false,
             initialRoute: SplashScreen.routeName,
             onGenerateRoute: route_generator.generateRoute,
@@ -50,6 +49,7 @@ class MyApp extends StatelessWidget {
               // tested with just a hot reload.
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
+
             ),
 
           ),

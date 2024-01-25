@@ -153,7 +153,8 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                             title: Text(user.email ?? "n/a"),
                             subtitle: Text(user.firstname ?? "n/a"),
                             leading: user.image == null
-                                ? Image.asset("assets/images/default_profile.png")
+                                ? Image.asset(
+                                    "assets/images/default_profile.png")
                                 : Image.network(user.image.toString()),
                           );
                         }).toList()),
