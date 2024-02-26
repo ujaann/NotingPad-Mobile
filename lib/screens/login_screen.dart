@@ -10,12 +10,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool not_login = false;
 
-  void navigateTo(String route) async {
-    print("ok");
+  bool notLogin = false;
+
+  void _navigateTo(String route) async {
     await Future.delayed(
-      const Duration(milliseconds: 9),
+      const Duration(seconds: 2),
           () {
         Navigator.pushReplacementNamed(context, route);
       },
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextFormField(
                   maxLines: 1,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       label: Text("Username"),
                       floatingLabelAlignment: FloatingLabelAlignment.center)),
             ),
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   maxLines: 1,
                   textAlign: TextAlign.center,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       label: Text("Password"),
                       floatingLabelAlignment: FloatingLabelAlignment.center)),
             ),
@@ -60,21 +60,21 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(9.0),
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Login", style: TextStyle(color: Colors.black)),
+                child: const Text("Login", style: TextStyle(color: Colors.black)),
               ),
             ),
             AnimatedCrossFade(
-              crossFadeState: not_login
+              crossFadeState: notLogin
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
               firstChild: Padding(
                 padding: const EdgeInsets.all(9.0),
                 child: InkWell(
-                  child: Text("Wont login"),
+                  child: const Text("Wont login"),
                   onTap: () {
                     setState(() {
-                      not_login = !not_login;
-                      print(not_login);
+                      notLogin = !notLogin;
+                      print(notLogin);
                     });
                   },
                 ),
@@ -83,13 +83,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(9.0),
                 child: InkWell(
                   onTap: () {
-                    //TODO  Redirect to home dashboard
-                    navigateTo(HomeScreen.routeName);
+                    _navigateTo(HomeScreen.routeName);
                   },
-                  child: Text("Press Here"),
+                  child: const Text("Press Here"),
                 ),
               ),
-              duration: Duration(seconds: 3),
+              duration: const Duration(seconds: 3),
             )
           ],
         ),

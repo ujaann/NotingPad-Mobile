@@ -23,7 +23,7 @@ class UserRepository {
     try {
       final res=(await instance.get()).docs;
       return res;
-    } on Exception catch (e) {
+    } on Exception {
       // TODO
     }
     return [];

@@ -25,7 +25,7 @@ class UserViewModel extends ChangeNotifier {
     try {
       final res = (await UserRepository().instance.get()).docs;
       return res;
-    } on Exception catch (e) {
+    } on Exception {
       // TODO
     }
     return [];

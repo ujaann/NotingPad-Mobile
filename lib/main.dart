@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:notingpad/providers/note_view_model.dart';
 import 'package:notingpad/providers/user_view_model.dart';
 import 'package:notingpad/routes/route_generator.dart';
 import 'package:notingpad/splash/splash_screen.dart';
@@ -12,6 +15,13 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  FirebaseUIAuth.configureProviders([EmailAuthProvider(),]);
+
+  // Both of the following lines are good for testing,
+  // but can be removed for release builds
+  // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  // await FirebaseAuth.instance.signOut();
   runApp(const MyApp());
 }
 
@@ -23,13 +33,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>UserViewModel())
+        ChangeNotifierProvider(create: (_)=>NoteViewModel())
       ],
         child: OverlayKit(
           child: MaterialApp(
             title: 'NotingPad',
             debugShowCheckedModeBanner: false,
-            initialRoute: SplashScreen.routeName,
+            initialRoute: "/splash",
             onGenerateRoute: route_generator.generateRoute,
             theme: ThemeData(
               // This is the theme of your application.

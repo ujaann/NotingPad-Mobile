@@ -33,7 +33,7 @@ class _FormScreenState extends State<FormScreen> {
                 builder: //listen multiple times
                     (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   } else if (snapshot.hasError) {
                     return Text(snapshot.error.toString());
                   } else if (snapshot.data!.snapshot.value == null) {
@@ -41,10 +41,10 @@ class _FormScreenState extends State<FormScreen> {
                   }
                   print(snapshot.data!.snapshot.value);
                   // print(snapshot.data!.snapshot.value.runtimeType);
-                  Map<dynamic, dynamic> _datas =
+                  Map<dynamic, dynamic> datas0 =
                       snapshot.data!.snapshot.value as dynamic;
-                  List<dynamic> value = _datas.values.toList();
-                  List<dynamic> key = _datas.keys.toList();
+                  List<dynamic> value = datas0.values.toList();
+                  List<dynamic> key = datas0.keys.toList();
                   print(key);
                   print(value);
 
@@ -66,7 +66,7 @@ class _FormScreenState extends State<FormScreen> {
                                     .child(key[index])
                                     .remove();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.delete,
                                 color: Colors.lightGreen,
                               ),
@@ -80,8 +80,8 @@ class _FormScreenState extends State<FormScreen> {
                                 showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
-                                    title: Text("Edit data"),
-                                    content: Container(
+                                    title: const Text("Edit data"),
+                                    content: SizedBox(
                                       height: 300,
                                       child: Column(
                                         children: [
@@ -100,14 +100,14 @@ class _FormScreenState extends State<FormScreen> {
                                                     .update(datas);
                                                 Navigator.of(context).pop();
                                               },
-                                              child: Text("Ediyt"))
+                                              child: const Text("Ediyt"))
                                         ],
                                       ),
                                     ),
                                   ),
                                 );
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.edit,
                                 color: Colors.yellow,
                               ),
@@ -122,19 +122,19 @@ class _FormScreenState extends State<FormScreen> {
             TextFormField(
                 // validator: (datas){},
                 controller: fname,
-                decoration: InputDecoration(label: Text("Firstname"))),
+                decoration: const InputDecoration(label: Text("Firstname"))),
             TextFormField(
                 controller: lname,
-                decoration: InputDecoration(label: Text("Lastname"))),
+                decoration: const InputDecoration(label: Text("Lastname"))),
             TextFormField(
                 controller: contact,
-                decoration: InputDecoration(label: Text("Contact"))),
+                decoration: const InputDecoration(label: Text("Contact"))),
             TextFormField(
                 controller: address,
-                decoration: InputDecoration(label: Text("Address"))),
+                decoration: const InputDecoration(label: Text("Address"))),
             TextFormField(
                 controller: email,
-                decoration: InputDecoration(label: Text("Email"))),
+                decoration: const InputDecoration(label: Text("Email"))),
             ElevatedButton(
                 onPressed: () async {
                   var datas = {
@@ -155,7 +155,7 @@ class _FormScreenState extends State<FormScreen> {
                     print(error.toString());
                   });
                 },
-                child: Text("submit"))
+                child: const Text("submit"))
           ],
         ),
       ),

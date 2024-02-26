@@ -46,7 +46,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
     var selected = await picker.pickImage(source: source, imageQuality: 100);
     if (selected == null) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("No image selected")));
+          .showSnackBar(const SnackBar(content: Text("No image selected")));
     } else {
       setState(() {
         image = File(selected.path);
@@ -79,26 +79,26 @@ class _FirestoreExampleState extends State<FirestoreExample> {
             // mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Email"),
+              const Text("Email"),
               TextFormField(controller: email),
-              Text("FirstName"),
+              const Text("FirstName"),
               TextFormField(
                 controller: fname,
               ),
-              Text("LastName"),
+              const Text("LastName"),
               TextFormField(
                 controller: lname,
               ),
               image == null
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Image.file(image!, height: 200, width: 200),
               ElevatedButton(
                   onPressed: () {
                     showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                              title: Text("Choose image"),
-                              content: Container(
+                              title: const Text("Choose image"),
+                              content: SizedBox(
                                 height: 150,
                                 child: Row(
                                   children: [
@@ -115,7 +115,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                                             height: 100,
                                             width: 100,
                                           ),
-                                          Text("Camera")
+                                          const Text("Camera")
                                         ],
                                       ),
                                     )),
@@ -132,7 +132,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                                             height: 100,
                                             width: 100,
                                           ),
-                                          Text("Gallery")
+                                          const Text("Gallery")
                                         ],
                                       ),
                                     )),
@@ -141,7 +141,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                               ),
                             ));
                   },
-                  child: Text("Hlo img")),
+                  child: const Text("Hlo img")),
               value.loading == true
                   ? const CircularProgressIndicator()
                   : value.data.isEmpty
@@ -176,7 +176,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                       email.clear();
                       fname.clear();
                       lname.clear();
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Data Submitted"),
                         backgroundColor: Colors.lightGreen,
                       ));
@@ -189,7 +189,7 @@ class _FirestoreExampleState extends State<FirestoreExample> {
                       ));
                     });
                   },
-                  child: Text("Submit")),
+                  child: const Text("Submit")),
             ],
           );
         },
